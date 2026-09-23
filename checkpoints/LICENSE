@@ -1,0 +1,23 @@
+Hist2Sig model weights (hist2sig.pt)
+
+Copyright (c) 2026 The Hist2Sig authors
+
+The model weights in this directory are licensed under the Creative Commons
+Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).
+
+  Summary: https://creativecommons.org/licenses/by-nc/4.0/
+  Full legal text: https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+You may use, share and adapt the weights for non-commercial purposes, such as
+academic research, provided that you give appropriate credit by citing the
+Hist2Sig paper. Any commercial use, sale or other monetization of the weights,
+or of models derived from them, is not permitted.
+
+The weights were trained on features extracted with H-optimus-1 (Bioptimus),
+which is itself released under CC BY-NC-ND 4.0 for non-commercial academic
+research only, and whose terms extend to models trained on its outputs. Users
+must obtain access to H-optimus-1 separately and comply with its terms:
+https://huggingface.co/bioptimus/H-optimus-1
+
+The weights are provided "as is", without warranty of any kind, and are not
+intended for clinical or diagnostic use.

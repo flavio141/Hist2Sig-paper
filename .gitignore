@@ -1,0 +1,125 @@
+# ============================================================
+#  Dati e output pesanti — MAI nel repo (rigenerabili o scaricabili)
+# ============================================================
+
+# --- WSI, feature estratte, dataset (centinaia di GB) ---
+dataset/
+dataset_ce
+dataset_co
+dataset_fla
+dataset_fla_1
+dataset_fla_2
+dataset_fla_3
+dataset_20x
+external_dataset/
+features/
+features_external/
+processed_images/
+gdc/
+failed_WSI/
+failed_WSI.txt
+not_resized_WSI.csv
+slide_mpp_info.csv
+
+# --- Attribuzioni e cache XAI ---
+# grad/ da solo vale 256 GB (CSV di attribuzione per patch + xai_outputs)
+grad/
+grad_cam_signatures_tcga/
+grad_cam_signatures_cptac/
+
+# --- Risultati di training e inferenza ---
+legacy/
+training_results/
+checkpoints/
+results/
+results_dec/
+results_final/
+results_multi/
+results_rag/
+result_dir/
+runs/
+logs/
+wandb/
+signature/
+csv_files/
+
+# --- Figure generate (si rigenerano dai notebook) ---
+notebooks/fig_*.png
+notebooks/fig_*.pdf
+notebooks/*.pdf
+
+# --- Metadati GDC (ri-scaricabili dall'API) ---
+metadata.repository.*.json
+
+# ============================================================
+#  Reti di sicurezza per estensione
+#  Evitano che un "git add ." pesante passi da una cartella nuova
+# ============================================================
+*.svs
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+*.h5
+*.parquet
+# eccezione: gli split TP/FN/TN dell'analisi XAI sono piccoli (<1 MB) e servono
+!coad_stad_explainability/*.parquet
+
+# ============================================================
+#  Ambiente e temporanei
+# ============================================================
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Optuna sqlite studies (created by SLURM arrays)
+optuna_hist2sig_*.db
+optuna_hist2sig_*.db.lock
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Weights & Biases offline artifacts
+wandb/
+wandb_cache/
+wandb_optuna_*/
+
+# Local plots/output
+Immagini_temp/
+predictions/
+
+# results/: ignore everything except final val predictions per fold and the
+# CPTAC prediction from the refit model (line 26 "results" would otherwise
+# ignore this directory wholesale, since gitignore matches by basename).
+!results/
+results/*
+!results/fold_*/
+!results/cptac/
+results/fold_*/*
+!results/fold_*/val_predictions_activities.csv
+!results/fold_*/val_predictions_profiles.csv
+results/cptac/*
+!results/cptac/cptac_exposures.csv
+!results/README.md
+
+# checkpoints/: keep the final model checkpoint (line 3 "checkpoints" would
+# otherwise ignore this directory wholesale).
+!checkpoints/
+!checkpoints/*.pt
+
+# Local datasets / exports
+Case_ID_images_features.txt
+Case_ID_images_union_features_features_complete.txt
+bad_files.txt
+
+# Individual-level data derived from controlled-access WGS (dbGaP): never commit
+DB_Signatures/Activities_Sig.csv
+DB_Signatures/Mutational_profile.csv
+Paper_reproducibility/datasets/Signature_DBs/Activities_Sig_matched_images.csv
+Paper_reproducibility/datasets/Signature_DBs/Mutational_profile_matched_images.csv
+Paper_reproducibility/datasets/CPTAC_exposures_v1.csv
+results/fold_*/*_with_truth.csv
+coad_stad_explainability/
+coad_stad_explainability_4fold/
