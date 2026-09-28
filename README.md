@@ -17,7 +17,7 @@
 
 > ### ⚠️ Work in progress
 >
-> This repository is linked with a manuscript under preparation. The code, the
+> This repository is linked with this paper: https://arxiv.org/abs/2609.30985. The code, the
 > documented pipeline and the released results are still changing: paths,
 > command-line flags and file layouts may move without notice, and nothing here
 > should be treated as a stable API yet. Results published from this repository
